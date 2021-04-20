@@ -28,10 +28,10 @@ namespace json_parser
             w.resize(dense.in_size, (T)0);
 
         auto layerWeights = weights[0];
-        for(size_t i = 0; i < layerWeights.size(); ++i)
+        for(size_t i = 0; i < dense.in_size; ++i)
         {
             auto lw = layerWeights[i];
-            for(size_t j = 0; j < lw.size(); ++j)
+            for(size_t j = 0; j < dense.out_size; ++j)
                 denseWeights[j][i] = lw[j].get<T>();
         }
 
